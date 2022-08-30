@@ -8,7 +8,7 @@ interface Rocket {
 export class Launch {
   public name!: string;
   public details!: string;
-  public thumbnail!: string;
+  public thumbnail!: string[];
   public date!: string;
   public rocket!: Rocket;
 
