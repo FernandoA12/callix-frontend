@@ -4,9 +4,9 @@ import axios, { AxiosInstance } from "axios";
 export class AxiosConnection implements Connection {
   private axios: AxiosInstance;
 
-  constructor() {
+  connect(baseUrl: string): void {
     this.axios = axios.create({
-      baseURL: "https://api.spacexdata.com/",
+      baseURL: baseUrl,
     });
   }
 

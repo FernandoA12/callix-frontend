@@ -36,8 +36,8 @@ export interface Middleware {
   handle: Handler;
 }
 
-export interface HttpServer<T = any> {
-  getApp(): T;
+export interface HttpServer {
+  getApp<T>(): T;
   listen(port: number, callback: () => void): void;
   registerMiddleware(handler: Handler): void;
   on(
