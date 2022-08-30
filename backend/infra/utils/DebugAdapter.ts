@@ -11,7 +11,7 @@ export class DebugAdapter implements Logger {
     this.debug = debug(`app:${id}`);
   }
 
-  log(message: string): void {
-    this.debug(message);
+  log(message: string, ...args: any[]): void {
+    this.debug(message, ...args);
   }
 }
