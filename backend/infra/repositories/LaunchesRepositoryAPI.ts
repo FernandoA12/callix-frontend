@@ -27,38 +27,59 @@ export class LaunchesRepositoryAPI implements LaunchesRepository {
 
   async nextLaunch(): Promise<Launch> {
     const response = await this.connection.post<ResponseAPI>(
-      "/v5/launches/next"
+      "/v5/launches/query",
+      {
+        upcoming: true,
+      },
+      {
+        populate: ["rocket"],
+        sort: {
+          date_utc: 1,
+        },
+      }
     );
     return new Launch({
-      name: response.name,
-      date: response.date_utc,
-      details: response.details || "",
+      name: response[0].name,
+      date: response[0].date_utc,
+      details: response[0].details || "",
       rocket: {
-        description: response.rocket.description,
-        name: response.rocket.name,
-        thumbnails: response.rocket.flickr_images,
-        type: response.rocket.type,
+        description: response[0].rocket.description,
+        name: response[0].rocket.name,
+        thumbnails: response[0].rocket.flickr_images,
+        type: response[0].rocket.type,
       },
-      thumbnail: [response.links.patch.small, response.links.patch.large],
+      thumbnail: [response[0].links.patch.small, response[0].links.patch.large],
     });
   }
+
   async pastLaunch(): Promise<Launch> {
-    const response = await this.connection.get<ResponseAPI>(
-      "/v5/launches/past"
-    );
-    return new Launch({
-      name: response.name,
-      date: response.date_utc,
-      details: response.details || "",
-      rocket: {
-        description: response.rocket.description,
-        name: response.rocket.name,
-        thumbnails: response.rocket.flickr_images,
-        type: response.rocket.type,
+    const response = await this.connection.post<ResponseAPI[]>(
+      "/v5/launches/query",
+      {
+        upcoming: false,
       },
-      thumbnail: [response.links.patch.small, response.links.patch.large],
+      {
+        populate: ["rocket"],
+        sort: {
+          date_utc: -1,
+        },
+      }
+    );
+
+    return new Launch({
+      name: response[0].name,
+      date: response[0].date_utc,
+      details: response[0].details || "",
+      rocket: {
+        description: response[0].rocket.description,
+        name: response[0].rocket.name,
+        thumbnails: response[0].rocket.flickr_images,
+        type: response[0].rocket.type,
+      },
+      thumbnail: [response[0].links.patch.small, response[0].links.patch.large],
     });
   }
+
   async upcomingLaunches(): Promise<Launch[]> {
     const responses = await this.connection.post<ResponseAPI[]>(
       "/v5/launches/query",
@@ -66,7 +87,7 @@ export class LaunchesRepositoryAPI implements LaunchesRepository {
         upcoming: true,
       },
       {
-        populate: ["launchpad"],
+        populate: ["rocket"],
         sort: {
           date_utc: 1,
         },
@@ -96,7 +117,7 @@ export class LaunchesRepositoryAPI implements LaunchesRepository {
         upcoming: false,
       },
       {
-        populate: ["launchpad"],
+        populate: ["rocket"],
         sort: {
           date_utc: -1,
         },

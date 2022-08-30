@@ -14,16 +14,15 @@ export class AxiosConnection implements Connection {
     const response = await this.axios.get(route);
     return response.data;
   }
+
   async post<T>(route: string, query: any, options: any): Promise<T> {
     const body = {
       query: query || {},
       options: options || {},
     };
 
-    const response = await this.axios.post(route, {
-      body,
-    });
+    const response = await this.axios.post(route, body);
 
-    return response.data;
+    return response.data.docs;
   }
 }
