@@ -2,7 +2,7 @@ import { GetUpcomingsLaunch } from "./../application/GetUpcomingsLaunch";
 import { Launch } from "../domain/entities/Launch";
 import { LaunchesRepository } from "../domain/repositories/LaunchesRepository";
 
-it("Should get the upcomings rocket`s launch", async () => {
+it("Should get the upcomings rocket`s launches", async () => {
   const launchesRepository: Pick<LaunchesRepository, "upcomingLaunches"> = {
     upcomingLaunches: jest.fn(async () => [
       new Launch({
