@@ -19,8 +19,8 @@ it("Should get the upcomings rocket`s launches", async () => {
       }),
     ]),
   };
-  const getUpcomingsLaunch = new GetUpcomingLaunches(launchesRepository);
-  const upcomingsLaunch = await getUpcomingsLaunch.execute();
-  expect(upcomingsLaunch[0].name).toBe("any");
+  const getUpcomingLaunches = new GetUpcomingLaunches(launchesRepository);
+  const upcommingLaunches = await getUpcomingLaunches.execute();
+  expect(upcommingLaunches[0].name).toBe("any");
   expect(launchesRepository.upcomingLaunches).toBeCalled();
 });

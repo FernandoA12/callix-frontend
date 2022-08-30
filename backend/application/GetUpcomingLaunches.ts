@@ -6,7 +6,7 @@ export class GetUpcomingLaunches {
   ) {}
 
   async execute() {
-    const upcommingsLaunch = await this.launchesRepository.upcomingLaunches();
-    return upcommingsLaunch;
+    const upcommingLaunches = await this.launchesRepository.upcomingLaunches();
+    return upcommingLaunches;
   }
 }
