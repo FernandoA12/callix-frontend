@@ -1,4 +1,4 @@
-import { GetUpcomingsLaunch } from "./../application/GetUpcomingsLaunch";
+import { GetUpcomingLaunches } from "./../application/GetUpcomingLaunches";
 import { Launch } from "../domain/entities/Launch";
 import { LaunchesRepository } from "../domain/repositories/LaunchesRepository";
 
@@ -19,7 +19,7 @@ it("Should get the upcomings rocket`s launches", async () => {
       }),
     ]),
   };
-  const getUpcomingsLaunch = new GetUpcomingsLaunch(launchesRepository);
+  const getUpcomingsLaunch = new GetUpcomingLaunches(launchesRepository);
   const upcomingsLaunch = await getUpcomingsLaunch.execute();
   expect(upcomingsLaunch[0].name).toBe("any");
   expect(launchesRepository.upcomingLaunches).toBeCalled();

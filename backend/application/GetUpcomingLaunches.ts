@@ -1,6 +1,6 @@
 import { LaunchesRepository } from "./../domain/repositories/LaunchesRepository";
 
-export class GetUpcomingsLaunch {
+export class GetUpcomingLaunches {
   constructor(
     private launchesRepository: Pick<LaunchesRepository, "upcomingLaunches">
   ) {}
