@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-sync-scripts */
+// @ts-nocheck
 /* eslint-disable @next/next/next-script-for-ga */
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
@@ -14,19 +16,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (!showChild) {
     return null;
   }
-
   return (
     <>
       <Head>
         <title>Space X</title>
         <script src="https://www.googleoptimize.com/optimize.js?id=OPT-KMP9J5X"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCZKR9TGN0"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-WCZKR9TGN0"
+        ></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-WCZKR9TGN0');
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag(`js`, new Date()); gtag(`config`, `G-WCZKR9TGN0`);
         </script>
       </Head>
       <Component {...pageProps} />
