@@ -34,7 +34,7 @@ export class LaunchesRepositoryAPI implements LaunchesRepository {
       "/v5/launches/query",
       {
         date_utc: {
-          $gte: this.dateFormatter.formatDate(this.dateFormatter.subMounths(new Date().toISOString(), 4))
+          $gte: this.dateFormatter.formatDate(this.dateFormatter.subMounths(new Date().toISOString(), 2))
         }
       },
       {
