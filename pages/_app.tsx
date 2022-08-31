@@ -21,15 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Space X</title>
         <script src="https://www.googleoptimize.com/optimize.js?id=OPT-KMP9J5X"></script>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-WCZKR9TGN0"
-        ></script>
-        <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag(`js`, new Date()); gtag(`config`, `G-WCZKR9TGN0`);
-        </script>
       </Head>
       <Component {...pageProps} />
     </>
