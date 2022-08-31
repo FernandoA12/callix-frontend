@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "din-bold";
+  src: url("../public//D-DIN-Bold.otf");
+}
+
+@font-face {
+  font-family: "din";
+  src: url("../public/D-DIN.otf");
+}
+
+* {
+  font-family: din-bold;
+}
+
+.font-light {
+  font-family: din;
+}
+
+
+div[aria-disabled=false] {
+  @apply grayscale
+}
