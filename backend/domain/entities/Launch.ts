@@ -6,9 +6,11 @@ interface Rocket {
 }
 
 export class Launch {
+  public id!: string;
   public name!: string;
   public details!: string;
   public thumbnail!: string[];
+  public upcoming!: boolean;
   public date!: string;
   public rocket!: Rocket;
 
