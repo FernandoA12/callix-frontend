@@ -15,10 +15,15 @@ const expressAdapter = new ExpressServer();
 const httpServer = new HttpServerAdapter(expressAdapter);
 
 const axiosConnection = new AxiosConnection();
-const launchesRepository = new LaunchesRepositoryAPI(axiosConnection, dateFNSFormatter);
+const launchesRepository = new LaunchesRepositoryAPI(
+  axiosConnection,
+  dateFNSFormatter
+);
 
 new LaunchesController(httpServer, launchesRepository);
 
 httpServer.listen(PORT, () => {
   logger.log("🔥 Server listening on port " + PORT);
 });
+
+export default httpServer;
