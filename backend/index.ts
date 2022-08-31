@@ -25,5 +25,3 @@ new LaunchesController(httpServer, launchesRepository);
 httpServer.listen(PORT, () => {
   logger.log("🔥 Server listening on port " + PORT);
 });
-
-export default httpServer;
