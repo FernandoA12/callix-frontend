@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-WCZKR9TGN0');
+          gtag('config', 'G-WCZKR9TGN0', { 'optimize_id': 'B70FIXR6Q4GOa4155lukCw'});
         </script>
       </Head>
       <Component {...pageProps} />
