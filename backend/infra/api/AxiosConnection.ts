@@ -2,7 +2,7 @@ import { Connection } from "./Connection";
 import axios, { AxiosInstance } from "axios";
 
 export class AxiosConnection implements Connection {
-  private axios: AxiosInstance;
+  private axios!: AxiosInstance;
 
   connect(baseUrl: string): void {
     this.axios = axios.create({
